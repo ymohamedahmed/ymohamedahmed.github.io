@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ymohamedahmed.github.io/project/dissertation/</loc>
+    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ymohamedahmed.github.io/project/</loc>
+    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ymohamedahmed.github.io/</loc>
+    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ymohamedahmed.github.io/project/million-plant-map/</loc>
+    <lastmod>2019-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ymohamedahmed.github.io/project/mortimer/</loc>
+    <lastmod>2017-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ymohamedahmed.github.io/authors/admin/</loc>
   </url>
   
@@ -32,10 +57,6 @@
   
   <url>
     <loc>https://ymohamedahmed.github.io/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ymohamedahmed.github.io/</loc>
   </url>
   
 </urlset>
