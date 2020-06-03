@@ -18,12 +18,9 @@
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
       <guid>https://ymohamedahmed.github.io/project/dissertation/</guid>
       <description>&lt;p&gt;Heart rate measurements from smart watches are notoriously spurious and can, especially during exercise, provide inaccurate measurements. This is because optical heart rate monitors work by measuring the amount of light emitted by the sensor that is reflected by the surface of the skin. This value correlates to the heart rate as it varies with the contractions of arteries near the surface of the skin. However, as a result, movement can cause the accuracy of the measurements to deviate. Athletes may rely on these values to gain insight into their performance and thus any improvements in accuracy are valuable.&lt;/p&gt;
-
 &lt;p&gt;Papers have shown that an accurate heart rate value can be extracted from a selfie video recorded by a smartphone. I am implementing of such a system which should be accessible through an Android application. The project also aims to investigate the relative performance of this system in comparison to a traditional smartwatch.&lt;/p&gt;
-
-&lt;p&gt;So far I&amp;rsquo;ve been working on implementing real-time face tracking:
-&lt;iframe src=&#34;https://drive.google.com/file/d/1-9inh-ksQoVr81WiKVAnrCt2dkmF2WOj/preview&#34; width=&#34;640&#34; height=&#34;360&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
-
+&lt;p&gt;So far I&amp;rsquo;ve been working on implementing real-time face tracking:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;This uses a hybrid approach of tracking points on the face, which is faster than simply detecting the face in each frame. We re-detect the face if the bounding box size changes too much. Preliminary results suggest this causes ~3x speed up on simply detecting the face in each frame in the video.&lt;/p&gt;
 </description>
     </item>
@@ -34,18 +31,15 @@
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       <guid>https://ymohamedahmed.github.io/project/million-plant-map/</guid>
       <description>&lt;p&gt;The University of Cambridge Herbarium has over a million specimens (including nearly 1000 personally collected by Charles Darwin). Many of these have alternative names and classifications. Public resources such as theplantlist.org have brought together a consensus list of names and their alternatives, but many specimens are stored under their old names. Our task was to provide a simpler and more intuitive retrieval process. Lauren (our cliented) wanted to be able to visualise the relationships between parts of the collection, using data from their databases, theplantlist.org and other scientific resources.&lt;/p&gt;
-
 &lt;p&gt;This is a huge issue in the Plant Sciences since looking for a single specimen in the Herbarium can take scientists large amounts of time, we stepped in by providing a simple interface through which they could an idea as to where the plant might be. We did this by providing potential synonyms of the plant as well as which name is the currently accepted version.&lt;/p&gt;
-
 &lt;p&gt;This culminated in me presenting the project to a full lecture theatre of ~300 people.
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
   &lt;iframe src=&#34;https://www.youtube.com/embed/lVxZDP0y2VE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/p&gt;
-
-&lt;p&gt;The slides are here:
-&lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSE2iTKcGDqPZtjox_MY7kbdZAPvHwN--Qzs-cpdEk_Z6OXluvWqVlLAQhfGXt72Q/embed?start=false&amp;loop=false&amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;720&#34; height=&#34;600&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;The slides are here:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     
