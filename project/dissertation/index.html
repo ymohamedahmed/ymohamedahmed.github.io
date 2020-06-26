@@ -91,42 +91,6 @@
 
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168536902-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-      dataLayer.push(arguments);
-  }
-
-  function trackOutboundLink(url) {
-    gtag('event', 'click', {
-         'event_category': 'outbound',
-         'event_label': url,
-         'transport_type': 'beacon',
-         'event_callback': function () {
-           document.location = url;
-         }
-    });
-    console.debug("Outbound link clicked: " + url);
-  }
-
-  function onClickCallback(event) {
-    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
-      return;
-    }
-    trackOutboundLink(event.target);  
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'UA-168536902-1', {});
-
-  
-  document.addEventListener('click', onClickCallback, false);
-</script>
-
-
   
 
 
@@ -571,7 +535,7 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>Heart rate measurements from smartwatches are notoriously spurious and can, especially during exercise, provide inaccurate measurements. This is because optical heart rate monitors work by measuring the amount of light emitted by the sensor that is reflected by the surface of the skin. This value correlates to the heart rate as it varies with the contractions of arteries near the surface of the skin. However, as a result, movement can cause the accuracy of the measurements to deviate. Athletes may rely on these values to gain insight into their performance and thus any improvements in accuracy are valuable.</p>
+      <p>Heart rate measurements from smartwatches are notoriously spurious and can, especially during exercise, provide inaccurate measurements. This is because optical heart rate monitors work by measuring the amount of light emitted by the sensor that is reflected by the surface of the skin. This value correlates to the heart rate as it varies with the contractions of arteries near the surface of the skin. However, as a result, movement can cause the accuracy of the measurements to deviate. Athletes may rely on these values to gain insight into their performance and so any improvements in accuracy are valuable.</p>
 <p>Papers have shown that an accurate heart rate value can be extracted from a selfie video recorded by a smartphone. I am implementing of such a system which should be accessible through an Android application. The project also aims to investigate the relative performance of this system in comparison to a traditional smartwatch.</p>
 <p>So far I&rsquo;ve been working on implementing real-time face tracking:</p>
 <!-- raw HTML omitted -->
