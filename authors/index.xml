@@ -16,8 +16,7 @@
       <title>Understanding principal component analysis</title>
       <link>https://ymohamedahmed.github.io/post/pca/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://ymohamedahmed.github.io/post/pca/</guid>
-      <description>&lt;p&gt;In this post, we&amp;rsquo;ll take a deep dive into PCA, from both a mathematical and implementation perspective.
+      <guid>https://ymohamedahmed.github.io/post/pca/</guid><description>&lt;p&gt;In this post, we&amp;rsquo;ll take a deep dive into PCA, from both a mathematical and implementation perspective.
 We&amp;rsquo;ll derive the equation from the ground up, look at how we can compute it and finally end with what it can be used for. This post is primarily targeted at those with a basic understanding of PCA but want to know the assumptions it relies on, its properties and derive how it can be computed.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re interested in the repository containing the Jupyter notebook from which this is derived, it&amp;rsquo;s 
 &lt;a href=&#34;https://github.com/ymohamedahmed/blog-posts/tree/master/pca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
