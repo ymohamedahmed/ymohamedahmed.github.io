@@ -5,9 +5,9 @@
     <link>https://ymohamedahmed.github.io/</link>
       <atom:link href="https://ymohamedahmed.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Yousuf</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_512x512_fill_lanczos_center_2.png</url>
+      <url>https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_512x512_fill_lanczos_center_3.png</url>
       <title>Yousuf</title>
       <link>https://ymohamedahmed.github.io/</link>
     </image>
@@ -28,7 +28,7 @@ We&amp;rsquo;ll derive the equation from the ground up, look at how we can compu
 &lt;img src=&#34;images/pca.svg&#34;&gt;
 
 &lt;h3 id=&#34;the-notion-of-reconstruction-error&#34;&gt;The notion of reconstruction error&lt;/h3&gt;
-&lt;p&gt;If we take our low-dimensional representation and attempt to recover the original &lt;em&gt;n&lt;/em&gt;-dimensional vector of each point, we could measure how much each point varies from its reconstruction. The difference between each reconstruction and the original, is one way of measuring the effectiveness of our new &lt;em&gt;k&lt;/em&gt;-dimensional space and is the approach taken by PCA.  Naturally, this requires a definition of a &lt;em&gt;similarity&lt;/em&gt; between two matrices. If we have a matrix $X$ of our original points and our reconstruction $X&#39;$ then we can define the difference between them as a sum of the square of errors $\sum_{i,j} (X-X&amp;rsquo;)_{i,j}^2$.&lt;/p&gt;
+&lt;p&gt;If we take our low-dimensional representation and attempt to recover the original &lt;em&gt;n&lt;/em&gt;-dimensional vector of each point, we could measure how much each point varies from its reconstruction. The difference between each reconstruction and the original, is one way of measuring the effectiveness of our new &lt;em&gt;k&lt;/em&gt;-dimensional space and is the approach taken by PCA.  Naturally, this requires a definition of a &lt;em&gt;similarity&lt;/em&gt; between two matrices. If we have a matrix $X$ of our original points and our reconstruction $X&#39;$ then we can define the difference between them as a sum of the square of errors $\sum_{i,j} (X-X&#39;)_{i,j}^2$.&lt;/p&gt;
 &lt;p&gt;This quantity is known as the &lt;em&gt;Frobenius&lt;/em&gt; norm of the matrix $||X-X&#39;||_F$ and is essentially an extension of the L2 ($||\mathbf{v}||_2^2 =  \sum_i \mathbf{v}_i^2 = \mathbf{v}^\top \mathbf{v}$) norm from vectors to matrices. It is just a fancy name for squaring every element in a matrix and taking their sum. Crucially, however, we can see that the Frobenius norm of a matrix, $A$, is precisely equivalent to $Tr[A^\top A]$ (see the illustration below).&lt;/p&gt;
 
 
@@ -37,7 +37,7 @@ We&amp;rsquo;ll derive the equation from the ground up, look at how we can compu
     &lt;figcaption&gt;Showing the relationship between the Frobenius norm and trace operator: $||A||_F^2 = \text{Tr}(A^\top A)$&lt;/figcaption&gt;
 &lt;/figure&gt; 
 
-&lt;p&gt;As a result, our error of interest, can be computed as $Tr[(X-X&amp;rsquo;)^\top (X-X&amp;rsquo;)]$, this will come in handy since the trace operator comes with a bunch of neat tricks for manipulating the matrices involved.&lt;/p&gt;
+&lt;p&gt;As a result, our error of interest, can be computed as $Tr[(X-X&#39;)^\top (X-X&#39;)]$, this will come in handy since the trace operator comes with a bunch of neat tricks for manipulating the matrices involved.&lt;/p&gt;
 &lt;h3 id=&#34;pca-assumptions&#34;&gt;PCA Assumptions&lt;/h3&gt;
 &lt;p&gt;We&amp;rsquo;ve defined how we&amp;rsquo;re going to evaluate this reconstruction, but not at all the means of performing the coding or its inverse.&lt;/p&gt;
 &lt;p&gt;PCA chooses to implement both the encoding and decoding as a matrix multiplication. So we can think of PCA as finding a matrix $D$ that will transform our input, $X$ to our coded version $C$ by a matrix multiplication (i.e. $C = XD$).
@@ -116,7 +116,7 @@ Furthermore, we can see that the quantity in fact takes on the associated eigenv
 
 &lt;img src=&#34;images/pca-proof-3.svg&#34; align=&#34;center&#34;/&gt;
 
-&lt;p&gt;Furthermore, from the diagram we can see that $\mu = \mathbf{a}&#39;\mathbf{d}_{k+1}$ and that $\mathbf{a}&amp;lsquo;=\mathbf{d}_{k+1}^\top\mathbf{A}$.&lt;/p&gt;
+&lt;p&gt;Furthermore, from the diagram we can see that $\mu = \mathbf{a}&#39;\mathbf{d}_{k+1}$ and that $\mathbf{a}&#39;=\mathbf{d}_{k+1}^\top\mathbf{A}$.&lt;/p&gt;
 &lt;p&gt;Now we can, finally, reframe our inductive case as $$\text{argmax}_{\mathbf{d}_{k+1}} \mathbf{d}_{k+1}^\top\mathbf{X}^\top\mathbf{X}\mathbf{d}_{k+1}$$&lt;/p&gt;
 &lt;p&gt;However, recall that we mandated that all the columns of the encoding matrix are orthonormal and hence, this condition is maximised, precisely, by the eigenvector with (k+1)-th largest eigenvalue. It is important to note that the eigenvectors (corresponding to different eigenvalues) are orthogonal here, since $\mathbf{X}^\top \mathbf{X}$ is real and symmetric. Given that we chose our base case as an eigenvector, we know that if we pick the $k+1$ vector as a different eigenvector, it will necessarily be orthogonal to all the other columns.&lt;/p&gt;
 &lt;p&gt;Finally, this induction cannot continue indefinitely, since we cannot have $n+1$ orthogonal $n$-dimensional vectors. This is intuitive since PCA is designed to find a lower-dimensional representation not increase the number of dimensions.
@@ -150,7 +150,7 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 &lt;p&gt;The only nuance is that we need to &lt;em&gt;center&lt;/em&gt; the matrix. This means that each column is supposed to have a mean of zero. It is rather rare to see a description of why we need to do this, in fact, it will also very frequently work without doing it. However, recall that when we proved that PCA decorrelates data we made the assumption that the data was centered. Without this assumption we wouldn&amp;rsquo;t have been able to use $\text{Var}[\mathbf{X}] = \frac{1}{m-1}\mathbf{Z}^\top\mathbf{Z}$ as an estimate of the covariance matrix.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -164,9 +164,9 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;pca_eig&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;pca_eig&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
     X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; center&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
-    eigenvals&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; eigenvectors &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;linalg&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;eig&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;T &lt;span style=&#34;background-color:#a848a8&#34;&gt;@&lt;/span&gt; X&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
+    eigenvals&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; eigenvectors &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;linalg&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;eig&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;T &lt;span style=&#34;color:#666&#34;&gt;@&lt;/span&gt; X&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
     &lt;span style=&#34;color:#2838b0&#34;&gt;return&lt;/span&gt; eigenvals&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; eigenvectors
 
 &lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;pca_svd&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
@@ -182,14 +182,14 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 &lt;p&gt;We can generate a noisy straight line and take a look at the effect of PCA on it.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;generate_noisy_line&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;gradient&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; N&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;generate_noisy_line&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;gradient&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; N&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
     X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;zeros&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;shape&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;N&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#444&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;))&lt;/span&gt;
     X&lt;span style=&#34;color:#888&#34;&gt;[:,&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;random&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;uniform&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#444&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; size&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;N&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
     X&lt;span style=&#34;color:#888&#34;&gt;[:,&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;[:,&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;gradient&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;random&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;uniform&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#444&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; size&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;N&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
@@ -200,14 +200,14 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 We can also see from the projected version the property of decorrelating data, which we just proved.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; generate_noisy_line&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;gradient&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; generate_noisy_line&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;gradient&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
 _&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt;eigenvectors &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pca_eig&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
 
 &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;# Use matrix multiplication &amp;#39;@&amp;#39; to find the projected versions&lt;/span&gt;
@@ -218,7 +218,7 @@ Z &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; X&lt;span style=&#34;col
 &lt;p&gt;Let&amp;rsquo;s compare our simple two-line implementations to the sklearn implementation.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
@@ -226,12 +226,12 @@ Z &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; X&lt;span style=&#34;col
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;# Our basic implementation vs. the sklearn implementation&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;# Our basic implementation vs. the sklearn implementation&lt;/span&gt;
 &lt;span style=&#34;color:#2838b0&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#289870&#34;&gt;sklearn.decomposition&lt;/span&gt; &lt;span style=&#34;color:#2838b0&#34;&gt;import&lt;/span&gt; PCA
 fitted &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; PCA&lt;span style=&#34;color:#888&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;fit&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;center&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;))&lt;/span&gt;
-&lt;span style=&#34;color:#2838b0&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;fitted&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;components_&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color:#2838b0&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;pca_eig&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;])&lt;/span&gt;
-&lt;span style=&#34;color:#2838b0&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;pca_svd&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;])&lt;/span&gt;
+&lt;span style=&#34;color:#388038&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;fitted&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;components_&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#388038&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;pca_eig&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;])&lt;/span&gt;
+&lt;span style=&#34;color:#388038&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;pca_svd&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;pre&gt;&lt;code&gt;[[ 0.22883214  0.9734659 ]
@@ -248,11 +248,11 @@ fitted &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; PCA&lt;span style=&
 If we wished to plot the countries in relation to each other we could use the two eigenvectors with largest eigenvalues (as we showed earlier). This new matrix where each row only consists of two features, can be plotted and understood by mere mortals without the ability to visualise 7-dimensions.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;df &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pd&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read_csv&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#b83838&#34;&gt;&amp;#34;data/country-data.csv&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;df &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pd&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read_csv&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#b83838&#34;&gt;&amp;#34;data/country-data.csv&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
 df&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;head&lt;span style=&#34;color:#888&#34;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -355,7 +355,7 @@ df&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;head&lt;span style=&#34;c
 &lt;p&gt;Let&amp;rsquo;s take the numeric columns (and exclude the score) which we will pass to the PCA algorithm. Given this, we take the two first columns of the returned eigenvector matrix (it&amp;rsquo;s returned sorted by eigenvalue so this is ok!) and project down by taking the matrix multiplication with the encoding matrix.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
@@ -366,13 +366,13 @@ df&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;head&lt;span style=&#34;c
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; df&lt;span style=&#34;color:#888&#34;&gt;[&lt;/span&gt;df&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;columns&lt;span style=&#34;color:#888&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;:]]&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;to_numpy&lt;span style=&#34;color:#888&#34;&gt;()&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; df&lt;span style=&#34;color:#888&#34;&gt;[&lt;/span&gt;df&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;columns&lt;span style=&#34;color:#888&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;:]]&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;to_numpy&lt;span style=&#34;color:#888&#34;&gt;()&lt;/span&gt;
 eigenvals&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; eigenvectors &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pca_svd&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;X&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
 encoding_matrix &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; eigenvectors&lt;span style=&#34;color:#888&#34;&gt;[:,:&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;]&lt;/span&gt;
 
 &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;# Sort in descending order&lt;/span&gt;
 sorted_eigenvals &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;argsort&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#444&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;eigenvals&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color:#2838b0&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;sorted_eigenvals&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#388038&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;sorted_eigenvals&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
 
 projected &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; X&lt;span style=&#34;color:#287088&#34;&gt;@encoding_matrix&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -444,16 +444,16 @@ As we can see, people frequently become recognisable well before 2400 dimensions
 &lt;p&gt;If you rerun the cell, it will pick a person at random from the dataset and show this grid of images again.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;reconstruct&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;num_components&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; encoding_matrix&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; test_image&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#2838b0&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#785840&#34;&gt;reconstruct&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;num_components&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; encoding_matrix&lt;span style=&#34;color:#888&#34;&gt;,&lt;/span&gt; test_image&lt;span style=&#34;color:#888&#34;&gt;):&lt;/span&gt;
     proj &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; encoding_matrix&lt;span style=&#34;color:#888&#34;&gt;[:,:&lt;/span&gt;num_components&lt;span style=&#34;color:#888&#34;&gt;]&lt;/span&gt;
-    rec &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;test_image&lt;span style=&#34;color:#287088&#34;&gt;@proj@proj.T&lt;/span&gt;&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;reshape&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;reversed_dims&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
+    rec &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;test_image&lt;span style=&#34;color:#287088&#34;&gt;@proj@proj&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;T&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;reshape&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;reversed_dims&lt;span style=&#34;color:#888&#34;&gt;)&lt;/span&gt;
     &lt;span style=&#34;color:#2838b0&#34;&gt;return&lt;/span&gt; Image&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;fromarray&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;np&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;uint8&lt;span style=&#34;color:#888&#34;&gt;(&lt;/span&gt;rec&lt;span style=&#34;color:#888&#34;&gt;))&lt;/span&gt;
     
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;

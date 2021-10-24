@@ -1,68 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://ymohamedahmed.github.io/project/multifew/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ymohamedahmed.github.io/project/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ymohamedahmed.github.io/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ymohamedahmed.github.io/project/msc-diss/</loc>
+    <lastmod>2021-09-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/post/</loc>
     <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/post/pca/</loc>
     <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ymohamedahmed.github.io/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/project/dissertation/</loc>
     <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ymohamedahmed.github.io/project/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/project/million-plant-map/</loc>
     <lastmod>2019-03-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/project/mortimer/</loc>
     <lastmod>2017-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/authors/admin/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/authors/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/publication_types/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/publication/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/talk/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ymohamedahmed.github.io/tags/</loc>
   </url>
-  
 </urlset>

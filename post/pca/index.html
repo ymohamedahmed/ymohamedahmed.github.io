@@ -201,7 +201,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.css">
+  <link rel="stylesheet" href="/css/academic.min.03182475fca95af305d18684fbfd1323.css">
 
   
 
@@ -255,8 +255,8 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_192x192_fill_lanczos_center_3.png">
 
   <link rel="canonical" href="https://ymohamedahmed.github.io/post/pca/">
 
@@ -276,8 +276,8 @@
   <meta property="og:site_name" content="Yousuf">
   <meta property="og:url" content="https://ymohamedahmed.github.io/post/pca/">
   <meta property="og:title" content="Understanding principal component analysis | Yousuf">
-  <meta property="og:description" content="In this post, we&rsquo;ll take a deep dive into PCA, from both a mathematical and implementation perspective. We&rsquo;ll derive the equation from the ground up, look at how we can compute it and finally end with what it can be used for. This post is primarily targeted at those with a basic understanding of PCA but want to know the assumptions it relies on, its properties and derive how it can be computed."><meta property="og:image" content="https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content="In this post, we&rsquo;ll take a deep dive into PCA, from both a mathematical and implementation perspective. We&rsquo;ll derive the equation from the ground up, look at how we can compute it and finally end with what it can be used for. This post is primarily targeted at those with a basic understanding of PCA but want to know the assumptions it relies on, its properties and derive how it can be computed."><meta property="og:image" content="https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_512x512_fill_lanczos_center_3.png">
+  <meta property="twitter:image" content="https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2020-07-02T00:00:00&#43;00:00">
@@ -318,7 +318,7 @@
     "name": "Yousuf",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_192x192_fill_lanczos_center_2.png"
+      "url": "https://ymohamedahmed.github.io/images/icon_hu163e191f0f8589bc8781432f2c50b34d_27975_192x192_fill_lanczos_center_3.png"
     }
   },
   "description": "In this post, we\u0026rsquo;ll take a deep dive into PCA, from both a mathematical and implementation perspective. We\u0026rsquo;ll derive the equation from the ground up, look at how we can compute it and finally end with what it can be used for. This post is primarily targeted at those with a basic understanding of PCA but want to know the assumptions it relies on, its properties and derive how it can be computed."
@@ -715,7 +715,7 @@ We&rsquo;ll derive the equation from the ground up, look at how we can compute i
 <img src="images/pca.svg">
 
 <h3 id="the-notion-of-reconstruction-error">The notion of reconstruction error</h3>
-<p>If we take our low-dimensional representation and attempt to recover the original <em>n</em>-dimensional vector of each point, we could measure how much each point varies from its reconstruction. The difference between each reconstruction and the original, is one way of measuring the effectiveness of our new <em>k</em>-dimensional space and is the approach taken by PCA.  Naturally, this requires a definition of a <em>similarity</em> between two matrices. If we have a matrix $X$ of our original points and our reconstruction $X'$ then we can define the difference between them as a sum of the square of errors $\sum_{i,j} (X-X&rsquo;)_{i,j}^2$.</p>
+<p>If we take our low-dimensional representation and attempt to recover the original <em>n</em>-dimensional vector of each point, we could measure how much each point varies from its reconstruction. The difference between each reconstruction and the original, is one way of measuring the effectiveness of our new <em>k</em>-dimensional space and is the approach taken by PCA.  Naturally, this requires a definition of a <em>similarity</em> between two matrices. If we have a matrix $X$ of our original points and our reconstruction $X'$ then we can define the difference between them as a sum of the square of errors $\sum_{i,j} (X-X')_{i,j}^2$.</p>
 <p>This quantity is known as the <em>Frobenius</em> norm of the matrix $||X-X'||_F$ and is essentially an extension of the L2 ($||\mathbf{v}||_2^2 =  \sum_i \mathbf{v}_i^2 = \mathbf{v}^\top \mathbf{v}$) norm from vectors to matrices. It is just a fancy name for squaring every element in a matrix and taking their sum. Crucially, however, we can see that the Frobenius norm of a matrix, $A$, is precisely equivalent to $Tr[A^\top A]$ (see the illustration below).</p>
 
 
@@ -724,7 +724,7 @@ We&rsquo;ll derive the equation from the ground up, look at how we can compute i
     <figcaption>Showing the relationship between the Frobenius norm and trace operator: $||A||_F^2 = \text{Tr}(A^\top A)$</figcaption>
 </figure> 
 
-<p>As a result, our error of interest, can be computed as $Tr[(X-X&rsquo;)^\top (X-X&rsquo;)]$, this will come in handy since the trace operator comes with a bunch of neat tricks for manipulating the matrices involved.</p>
+<p>As a result, our error of interest, can be computed as $Tr[(X-X')^\top (X-X')]$, this will come in handy since the trace operator comes with a bunch of neat tricks for manipulating the matrices involved.</p>
 <h3 id="pca-assumptions">PCA Assumptions</h3>
 <p>We&rsquo;ve defined how we&rsquo;re going to evaluate this reconstruction, but not at all the means of performing the coding or its inverse.</p>
 <p>PCA chooses to implement both the encoding and decoding as a matrix multiplication. So we can think of PCA as finding a matrix $D$ that will transform our input, $X$ to our coded version $C$ by a matrix multiplication (i.e. $C = XD$).
@@ -803,7 +803,7 @@ Furthermore, we can see that the quantity in fact takes on the associated eigenv
 
 <img src="images/pca-proof-3.svg" align="center"/>
 
-<p>Furthermore, from the diagram we can see that $\mu = \mathbf{a}'\mathbf{d}_{k+1}$ and that $\mathbf{a}&lsquo;=\mathbf{d}_{k+1}^\top\mathbf{A}$.</p>
+<p>Furthermore, from the diagram we can see that $\mu = \mathbf{a}'\mathbf{d}_{k+1}$ and that $\mathbf{a}'=\mathbf{d}_{k+1}^\top\mathbf{A}$.</p>
 <p>Now we can, finally, reframe our inductive case as $$\text{argmax}_{\mathbf{d}_{k+1}} \mathbf{d}_{k+1}^\top\mathbf{X}^\top\mathbf{X}\mathbf{d}_{k+1}$$</p>
 <p>However, recall that we mandated that all the columns of the encoding matrix are orthonormal and hence, this condition is maximised, precisely, by the eigenvector with (k+1)-th largest eigenvalue. It is important to note that the eigenvectors (corresponding to different eigenvalues) are orthogonal here, since $\mathbf{X}^\top \mathbf{X}$ is real and symmetric. Given that we chose our base case as an eigenvector, we know that if we pick the $k+1$ vector as a different eigenvector, it will necessarily be orthogonal to all the other columns.</p>
 <p>Finally, this induction cannot continue indefinitely, since we cannot have $n+1$ orthogonal $n$-dimensional vectors. This is intuitive since PCA is designed to find a lower-dimensional representation not increase the number of dimensions.
@@ -837,7 +837,7 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 <p>The only nuance is that we need to <em>center</em> the matrix. This means that each column is supposed to have a mean of zero. It is rather rare to see a description of why we need to do this, in fact, it will also very frequently work without doing it. However, recall that when we proved that PCA decorrelates data we made the assumption that the data was centered. Without this assumption we wouldn&rsquo;t have been able to use $\text{Var}[\mathbf{X}] = \frac{1}{m-1}\mathbf{Z}^\top\mathbf{Z}$ as an estimate of the covariance matrix.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -851,9 +851,9 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#2838b0">def</span> <span style="color:#785840">pca_eig</span><span style="color:#888">(</span>X<span style="color:#888">):</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#2838b0">def</span> <span style="color:#785840">pca_eig</span><span style="color:#888">(</span>X<span style="color:#888">):</span>
     X <span style="color:#666">=</span> center<span style="color:#888">(</span>X<span style="color:#888">)</span>
-    eigenvals<span style="color:#888">,</span> eigenvectors <span style="color:#666">=</span> np<span style="color:#666">.</span>linalg<span style="color:#666">.</span>eig<span style="color:#888">(</span>X<span style="color:#666">.</span>T <span style="background-color:#a848a8">@</span> X<span style="color:#888">)</span>
+    eigenvals<span style="color:#888">,</span> eigenvectors <span style="color:#666">=</span> np<span style="color:#666">.</span>linalg<span style="color:#666">.</span>eig<span style="color:#888">(</span>X<span style="color:#666">.</span>T <span style="color:#666">@</span> X<span style="color:#888">)</span>
     <span style="color:#2838b0">return</span> eigenvals<span style="color:#888">,</span> eigenvectors
 
 <span style="color:#2838b0">def</span> <span style="color:#785840">pca_svd</span><span style="color:#888">(</span>X<span style="color:#888">):</span>
@@ -869,14 +869,14 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 <p>We can generate a noisy straight line and take a look at the effect of PCA on it.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#2838b0">def</span> <span style="color:#785840">generate_noisy_line</span><span style="color:#888">(</span>gradient<span style="color:#888">,</span> N<span style="color:#666">=</span><span style="color:#444">100</span><span style="color:#888">):</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#2838b0">def</span> <span style="color:#785840">generate_noisy_line</span><span style="color:#888">(</span>gradient<span style="color:#888">,</span> N<span style="color:#666">=</span><span style="color:#444">100</span><span style="color:#888">):</span>
     X <span style="color:#666">=</span> np<span style="color:#666">.</span>zeros<span style="color:#888">(</span>shape<span style="color:#666">=</span><span style="color:#888">(</span>N<span style="color:#888">,</span> <span style="color:#444">2</span><span style="color:#888">))</span>
     X<span style="color:#888">[:,</span><span style="color:#444">0</span><span style="color:#888">]</span> <span style="color:#666">=</span> np<span style="color:#666">.</span>random<span style="color:#666">.</span>uniform<span style="color:#888">(</span><span style="color:#666">-</span><span style="color:#444">100</span><span style="color:#888">,</span> <span style="color:#444">100</span><span style="color:#888">,</span> size<span style="color:#666">=</span>N<span style="color:#888">)</span>
     X<span style="color:#888">[:,</span><span style="color:#444">1</span><span style="color:#888">]</span> <span style="color:#666">=</span> <span style="color:#888">(</span>X<span style="color:#888">[:,</span><span style="color:#444">0</span><span style="color:#888">]</span><span style="color:#666">*</span>gradient<span style="color:#888">)</span><span style="color:#666">+</span> np<span style="color:#666">.</span>random<span style="color:#666">.</span>uniform<span style="color:#888">(</span><span style="color:#666">-</span><span style="color:#444">100</span><span style="color:#888">,</span> <span style="color:#444">100</span><span style="color:#888">,</span> size<span style="color:#666">=</span>N<span style="color:#888">)</span>
@@ -887,14 +887,14 @@ We know that $\mathbf{Z} = \mathbf{X}\mathbf{D}$, if $\mathbf{X}$ is our origina
 We can also see from the projected version the property of decorrelating data, which we just proved.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#666">=</span> generate_noisy_line<span style="color:#888">(</span>gradient<span style="color:#666">=</span><span style="color:#444">4</span><span style="color:#888">)</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#666">=</span> generate_noisy_line<span style="color:#888">(</span>gradient<span style="color:#666">=</span><span style="color:#444">4</span><span style="color:#888">)</span>
 _<span style="color:#888">,</span>eigenvectors <span style="color:#666">=</span> pca_eig<span style="color:#888">(</span>X<span style="color:#888">)</span>
 
 <span style="color:#888;font-style:italic"># Use matrix multiplication &#39;@&#39; to find the projected versions</span>
@@ -905,7 +905,7 @@ Z <span style="color:#666">=</span> X<span style="color:#287088">@eig_dec</span>
 <p>Let&rsquo;s compare our simple two-line implementations to the sklearn implementation.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -913,12 +913,12 @@ Z <span style="color:#666">=</span> X<span style="color:#287088">@eig_dec</span>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888;font-style:italic"># Our basic implementation vs. the sklearn implementation</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888;font-style:italic"># Our basic implementation vs. the sklearn implementation</span>
 <span style="color:#2838b0">from</span> <span style="color:#289870">sklearn.decomposition</span> <span style="color:#2838b0">import</span> PCA
 fitted <span style="color:#666">=</span> PCA<span style="color:#888">()</span><span style="color:#666">.</span>fit<span style="color:#888">(</span>center<span style="color:#888">(</span>X<span style="color:#888">))</span>
-<span style="color:#2838b0">print</span><span style="color:#888">(</span>fitted<span style="color:#666">.</span>components_<span style="color:#888">)</span>
-<span style="color:#2838b0">print</span><span style="color:#888">(</span>pca_eig<span style="color:#888">(</span>X<span style="color:#888">)[</span><span style="color:#444">1</span><span style="color:#888">])</span>
-<span style="color:#2838b0">print</span><span style="color:#888">(</span>pca_svd<span style="color:#888">(</span>X<span style="color:#888">)[</span><span style="color:#444">1</span><span style="color:#888">])</span>
+<span style="color:#388038">print</span><span style="color:#888">(</span>fitted<span style="color:#666">.</span>components_<span style="color:#888">)</span>
+<span style="color:#388038">print</span><span style="color:#888">(</span>pca_eig<span style="color:#888">(</span>X<span style="color:#888">)[</span><span style="color:#444">1</span><span style="color:#888">])</span>
+<span style="color:#388038">print</span><span style="color:#888">(</span>pca_svd<span style="color:#888">(</span>X<span style="color:#888">)[</span><span style="color:#444">1</span><span style="color:#888">])</span>
 </code></pre></td></tr></table>
 </div>
 </div><pre><code>[[ 0.22883214  0.9734659 ]
@@ -935,11 +935,11 @@ fitted <span style="color:#666">=</span> PCA<span style="color:#888">()</span><s
 If we wished to plot the countries in relation to each other we could use the two eigenvectors with largest eigenvalues (as we showed earlier). This new matrix where each row only consists of two features, can be plotted and understood by mere mortals without the ability to visualise 7-dimensions.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv<span style="color:#888">(</span><span style="color:#b83838">&#34;data/country-data.csv&#34;</span><span style="color:#888">)</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv<span style="color:#888">(</span><span style="color:#b83838">&#34;data/country-data.csv&#34;</span><span style="color:#888">)</span>
 df<span style="color:#666">.</span>head<span style="color:#888">()</span>
 </code></pre></td></tr></table>
 </div>
@@ -1042,7 +1042,7 @@ df<span style="color:#666">.</span>head<span style="color:#888">()</span>
 <p>Let&rsquo;s take the numeric columns (and exclude the score) which we will pass to the PCA algorithm. Given this, we take the two first columns of the returned eigenvector matrix (it&rsquo;s returned sorted by eigenvalue so this is ok!) and project down by taking the matrix multiplication with the encoding matrix.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -1053,13 +1053,13 @@ df<span style="color:#666">.</span>head<span style="color:#888">()</span>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#666">=</span> df<span style="color:#888">[</span>df<span style="color:#666">.</span>columns<span style="color:#888">[</span><span style="color:#444">3</span><span style="color:#888">:]]</span><span style="color:#666">.</span>to_numpy<span style="color:#888">()</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#666">=</span> df<span style="color:#888">[</span>df<span style="color:#666">.</span>columns<span style="color:#888">[</span><span style="color:#444">3</span><span style="color:#888">:]]</span><span style="color:#666">.</span>to_numpy<span style="color:#888">()</span>
 eigenvals<span style="color:#888">,</span> eigenvectors <span style="color:#666">=</span> pca_svd<span style="color:#888">(</span>X<span style="color:#888">)</span>
 encoding_matrix <span style="color:#666">=</span> eigenvectors<span style="color:#888">[:,:</span><span style="color:#444">2</span><span style="color:#888">]</span>
 
 <span style="color:#888;font-style:italic"># Sort in descending order</span>
 sorted_eigenvals <span style="color:#666">=</span> np<span style="color:#666">.</span>argsort<span style="color:#888">(</span><span style="color:#666">-</span><span style="color:#444">1</span><span style="color:#666">*</span>eigenvals<span style="color:#888">)</span>
-<span style="color:#2838b0">print</span><span style="color:#888">(</span>sorted_eigenvals<span style="color:#888">)</span>
+<span style="color:#388038">print</span><span style="color:#888">(</span>sorted_eigenvals<span style="color:#888">)</span>
 
 projected <span style="color:#666">=</span> X<span style="color:#287088">@encoding_matrix</span>
 </code></pre></td></tr></table>
@@ -1131,16 +1131,16 @@ As we can see, people frequently become recognisable well before 2400 dimensions
 <p>If you rerun the cell, it will pick a person at random from the dataset and show this grid of images again.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#2838b0">def</span> <span style="color:#785840">reconstruct</span><span style="color:#888">(</span>num_components<span style="color:#888">,</span> encoding_matrix<span style="color:#888">,</span> test_image<span style="color:#888">):</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#2838b0">def</span> <span style="color:#785840">reconstruct</span><span style="color:#888">(</span>num_components<span style="color:#888">,</span> encoding_matrix<span style="color:#888">,</span> test_image<span style="color:#888">):</span>
     proj <span style="color:#666">=</span> encoding_matrix<span style="color:#888">[:,:</span>num_components<span style="color:#888">]</span>
-    rec <span style="color:#666">=</span> <span style="color:#888">(</span>test_image<span style="color:#287088">@proj@proj.T</span><span style="color:#888">)</span><span style="color:#666">.</span>reshape<span style="color:#888">(</span>reversed_dims<span style="color:#888">)</span>
+    rec <span style="color:#666">=</span> <span style="color:#888">(</span>test_image<span style="color:#287088">@proj@proj</span><span style="color:#666">.</span>T<span style="color:#888">)</span><span style="color:#666">.</span>reshape<span style="color:#888">(</span>reversed_dims<span style="color:#888">)</span>
     <span style="color:#2838b0">return</span> Image<span style="color:#666">.</span>fromarray<span style="color:#888">(</span>np<span style="color:#666">.</span>uint8<span style="color:#888">(</span>rec<span style="color:#888">))</span>
     
 </code></pre></td></tr></table>
@@ -1277,12 +1277,12 @@ As we can see, people frequently become recognisable well before 2400 dimensions
     <div class="media author-card content-widget-hr">
       
         
-        <img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu33d8f2710ea4928d295bd08cdc05f6eb_99861_270x270_fill_q90_lanczos_center.jpg" alt="">
+        <img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_huf8ef73e219fe7454e2549257ded28ee7_1869995_270x270_fill_q90_lanczos_center.JPG" alt="">
       
 
       <div class="media-body">
         <h5 class="card-title"><a href="https://ymohamedahmed.github.io/"></a></h5>
-        <h6 class="card-subtitle">Undergraduate Student in Computer Science</h6>
+        
         <p class="card-text">Incoming Master&rsquo;s student at UCL in Machine Learning and Cambridge graduate.</p>
         <ul class="network-icon" aria-hidden="true">
   
@@ -1434,7 +1434,7 @@ As we can see, people frequently become recognisable well before 2400 dimensions
     
     
     
-    <script src="/js/academic.min.66c553246b0f279a03be6e5597f72b52.js"></script>
+    <script src="/js/academic.min.72756512af279b10e3e4b09540ed6e9f.js"></script>
 
     
 
